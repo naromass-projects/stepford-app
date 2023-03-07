@@ -1,0 +1,51 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ADMIN - Corpus Import{% endblock %}
+{% block content %}
+<div class="container admin">
+  <form action="{{ url_for('corpus_choose_conversion') }}" method="post">
+    <div class="row">
+      <div class="col-sm">
+        <h3>Unprocessed texts</h3>
+        {% if new|count > 0 %}
+        <ul class="corpus unprocessed">
+          {% for i in new %}
+          <li class="{% if i.status == "bad" %}bad{% endif %}" >
+
+            <input type="radio" value="unprocessed;;;{{ i.name }}" id="{{ i.name }}" {% if i.status == "bad" %}disabled{% endif %} name="textfile" >
+            <label for="{{ i.name }}">
+              {{ i.name }}:
+              <b>{{ i.title }}</b> by <b>{{ i.author }}</b> {% if i.segments|count > 0 %}({{ i.segments|count }} segments){% endif %}</label>
+
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <i>No new items detected.</i>
+        {% endif %}
+
+        <h3>Processed texts</h3>
+        {% if old|count > 0 %}
+        <ul class="corpus processed">
+          {% for i in old %}
+          <li class="{% if i.status == "bad" %}bad{% endif %}" >
+            {{ i.name }}: 
+            <input type="radio" value="processed;;;{{ i.name }}" id="{{ i.name }}" {% if i.status == "bad" %}disabled{% endif %} name="textfile" >
+            <label for="{{ i.name }}">
+              <b>{{ i.title }}</b> by <b>{{ i.author }}</b> {% if i.segments|count > 0 %}({{ i.segments|count }} segments){% endif %}</label>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <i>Nothing previously processed.</i>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <input type="submit" value="Review contents...">
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+

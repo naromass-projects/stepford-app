@@ -1,0 +1,31 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ADMIN - Conversions{% endblock %}
+{% block content %}
+<div class="container admin">
+  <form action="{{ url_for('admin_conversion_edit') }}" method="get">
+    <div class="row">
+      <div class="col-sm">
+        <h3>Conversion configurations</h3>
+        <ul>
+        {% for i in conversions %}
+          <li>
+            <input type="radio" value="{{ i.label }}" id="{{ i.label }}" name="label">
+            <label for="{{ i.label }}">{{ i.label }}
+              {{ "★"*i.rating }}{{ "✩"*(5-i.rating) }}
+              {% if i.locked %}🔒{% endif %}
+            </label>
+          </li>
+          {% endfor %}
+          <li><input type="radio" id="new" value="" name="label" selected><label for="new" <i>New...</i></label></li>
+        </ul>
+       </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <input type="submit" value="View Parameters..." name="View Parameters...">
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+

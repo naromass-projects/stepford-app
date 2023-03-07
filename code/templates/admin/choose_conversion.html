@@ -1,0 +1,37 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ADMIN - Corpus Import{% endblock %}
+{% block content %}
+<div class="container admin">
+  <form action="{{ url_for('corpus_handle_processing') }}" method="post">
+    <input type="hidden" name="textfile" value="{{textfile}}">
+    <div class="row">
+      <div class="col-sm">
+        <h3 class="processingstatus">{{ processing_status }}</h3>
+        <h4><span class="title">{{ story.title }}</span> by <span class="author"> {{ story.author }}</span> ({{ story.segments | count }} segments)</h4>
+        {% for i in story["segments"] %}
+        <div class="row conversion segment">
+          <div class="count col">{{ loop.index }}</div>
+          <div class="storysegment col-11 {{ loop.index }}">{{ i }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label for="apikey">API Key</label>
+        <input type="text" name="apikey" id="apikey">
+      </div>
+      <div class="col-sm">
+        <select name="conversion" id="conversion">
+          {% for c in conversions %}
+          <option value="{{ c }}">{{ c }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-sm" >
+        <input type="submit" value="Send for processing..." >
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

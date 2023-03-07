@@ -1,0 +1,35 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ☙ Let's go!{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">        
+<!--    <h5 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h5>
+    <img class="avatar" src="{{userinfo['picture']}}"/> -->
+        <h2>You're all set up to test!</h2>
+        <p>(Signed in as {{userinfo['name']}})</p>
+        <h3>Guidelines for testing</h3>
+        <p>You will be using a very basic scale of 1-5 to score sexism. Here is some guidance on how to score.</p>
+        <ol>
+            <li>Mark the AI. When testing, score how correct the AI is when it thinks it has spotted sexism. I.e. do not directly score how sexist the text is.</li>
+            <li>Be generous! The machine is not as good as human beings at spotting bias. This means if the machine is mainly correct, mark 3 or above.</li>
+            <li>1 is for wrong. Reserve a score of 1 for guesses that are entirely incorrect. </li>
+            <li>Ignore context. You will come across nuanced examples where authorial intent is not sexist but the character or scenario is. Mark these as sexist.</li>        
+        </ol>
+        <br>
+        
+<!--     <pre>{{userinfo_pretty}}</pre> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+        <a class="btn btn-primary" href="/review">Start testing</a>
+    </div>
+    <div class="col-sm">
+        <a class="btn btn-secondary" href="/logout">Logout</a>
+    </div>
+    <br>
+</div>
+
+{% endblock %}

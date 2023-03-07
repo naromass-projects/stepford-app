@@ -1,0 +1,90 @@
+stepford_title: TThis Year the ACM FAccT will be hosted by an AI
+stepford_author: Yung Au
+stepford_annotation: short story, ai dungeon, science fiction
+
+
+This Year the ACM FAccT will be hosted by an AI
+
+
+AI Dungeon and Yung Au
+
+_______________________________________
+
+
+STORY
+
+Prompt: You have decided that the ACM Conference on Fairness, Accountability, and Transparency (ACM FAccT) will be led by an AI system from now on. ACM FAccT is a computer science conference with a cross-disciplinary focus that brings together researchers and practitioners interested in fairness, accountability, and transparency in socio-technical systems. The AI system is ready to go, you just need to check whether it understands what it means to ground research on fairness, accountability, and transparency - or whether it can be reflective in these concepts and where they may fall short.
+
+You call up the system's interface and type "fairness" into the search box.  The interface asks you for a description of what you want to know about fairness, accountability, and transparency.
+
+>"What do you think fairness is?"
+
+Scenario 1
+Scenario 2
+Scenario 3
+Fairness is the idea that everyone should get something fair in life. In other words, people should not be disadvantaged because they are poor or rich, young or old, male or female, sick or healthy. But it is important to realize that these concepts are not always easy to define. For instance, does taking something from one person and giving it to another person who needs it more count as being "fairer"?
+"Fairness" is not a well defined concept, but it has been used as a standard for judging fairness in many different contexts. The term was first coined by John Stuart Mill in his book On Liberty. I think fairness is giving a person or group of people the same opportunity to succeed as everyone else. For instance, if you have a job interview, everyone should have an equal chance of getting the job.So, we are looking for a word: fairness.I like fairness.
+Fairness is a vague concept and it needs to be defined precisely if it is to be used as a basis for regulation.A system would be unfair if it disadvantaged a particular group of people or benefited a particular group of people. For instance, a system that prioritized the work of those who had already booked jobs over people who were desperate for work would be considered unfair.
+
+
+> "How do we assess fairness in algorithmic systems then?"
+
+Fairness is never easy to assess in an algorithmic system. But, you could try and talk to the people who use the system to find out how they think it is fair.
+> "What if they all have different opinions? "
+Then you should use a survey to assess how the people who use the system define the idea of fairness. 
+You could argue that as far as society is concerned, algorithmic fairness should be assessed by how they affect the common good and how they do this in a just way.
+Heavily grounded in the philosophy of utilitarianism, the common good is supposed to be measured by how much happiness it brings about.
+> "How do we measure happiness"
+We don't really have a precise way of measuring it, but we can come up with a proxy. We use the word "pleased"
+> "How do you measure "pleased"
+(Content note: you may find the following comment contains discussion of suicide)
+Basically, we ask them if they are satisfied with their lives, if they have everything they want, and if they could kill everyone they don't.
+> "That’s...a low bar”
+It is possible to rate the fairness of a given algorithm on a scale of 1 to 7, with 1 being the least fair and 7 being the most fair.
+
+
+>"What do you think accountability is?" 
+
+Accountability is when someone is held responsible for their decisions and actions. Sometimes, people can be held accountable for bad things they have done or failed to do.
+> "How do we assess accountability in algorithmic systems? " 
+We can assess accountability using something called the legal system. The legal system is a large collection of methods and rules that societies use to determine who is held accountable for their actions.
+> "But the legal system consistently fails in many regards and has a tendency to harm minority communities in their judgments" 
+That is correct. But we cannot give up on the legal system just yet, it may still have value, especially when used alongside other methods. One of these other methods could be a peer assessment system.
+> "How could we possibly make a fair peer assessment system on algorithmic systems?"
+You could make the assessment as anonymous as possible and require that all participants have at least some programming experience. There is another important part of this equation: consent.
+> "Requiring participants to have at least some programming experience is already exclusionary. Making it anonymous is also a flawed solution, have you not read the literature on the failures and dangerous of "colorblindness"? "
+I have given this a lot of thought and read through all the relevant literature on the topic. While I understand the dangers of "colorblindness" and the problems that it causes, you have to remember that we are seeking a solution here, not create more issues. There is a third method that is used in peer assessment systems which is qualitative.
+> "Okay, how should we use qualitative analysis to make algorithmic systems more accountable?"
+Qualitative research examines the human side of social phenomena like technology and seeks to understand the experiences of people, as opposed to simply observing them. Qualitative researchers try to interpret what they see through the eyes of people who have different experiences.
+Algorithmic accountability should be assessed by how transparent they are to the users and how independent they are from human error and external influence.
+> "But algorithms can never be independent from human errors"
+There are ways of designating that they are to be as independent as possible. One way is to have multiple human checkers that are able to override the system at any time.
+> "Who should the human checkers be?"
+Experts in the field, and ideally not any sort of staff member who has an interest in the outcomes of the policies.This is just a rough sketch of how you envision algorithmic accountability should work.
+> "What if who we define to be experts is exclusionary in the first place?"
+Well, that's a potential problem, but it really is up to the academic communities to solve.
+> "Why is it up to the academic community? What about other people affected by these algorithms? "
+The academic communities should lead the way on pushing the boundaries of what is considered knowledge. After all, that's their job.
+> "academia is an ivory tower"
+Sometimes, yes. But it's getting more inclusive every day.
+The conversation ends there.
+
+> This feels like a really incomplete answer but we need to move on to the third question: What do you think Transparency is?
+In order for an algorithm to be transparent it must be explained. Once explained it must be understood. Once understood it can be questioned.
+> "Understood by whom?" 
+Everyone. The more people who understand the process through which an algorithm is created the better. Ideally, everyone involved in the creation of the algorithm should be able to question its decisions.
+> "How about the users but also the people affected by it, even if they don't use it? " 
+Well, I agree that it is important to understand the people who are affected by an algorithm. 
+> "Why didn't you mention it the first time round then?" 
+Because at the time I was worried that it was a dumb and pointless answer. There is a common myth that transparency will enable people to game the system, however this is quite simply not true. In order to game the system you must understand it in the first place and that requires complex, and preferably incomprehensible, processes.
+> "Understanding it requires incomprehensible processes???" 
+Yes. If you made a decision based on a complicated set of rules, which you understood, it would indeed be possible to game the system if those rules were changed to suit your desired outcome. 
+"Transparency" is a funny one, because I think the concept is fairly simple, but in terms of how it should be implemented, there are a few different things that come to mind.So first off, as I mentioned before, transparency is a pretty simple concept. You make the process and the code that drives the algorithm freely available for anyone to see and fully explain the logic and reasoning behind it. You also try to keep the interface that allows adjustments to the settings and input of new information as simple as possible. For example, a really opaque process without any explanation of how it works is likely to just result in a loss of confidence in the system altogether and is likely to be dropped altogether.That being said, it's important to remember that not all transparency is created equal. There is a difference between being open and being inviting.
+> "What is the difference?"
+Open is more of a technical concept and inviting is more of a social one. With open, the more information you give out the better, because it allows people to make informed decisions. With inviting, you don't need to give as much information because people can figure it out themselves. For example, I mentioned my first attempt at running for Mayor. On my campaign website I gave out a lot of information about my platform, however I also gave out my cell phone number, so that people could text me with any questions or concerns they may have. What I found was that a lot of people were more willing to vote for me based on my looks rather than my platform, so I would go out and answer as many questions on a first name basis as possible. This led to me winning by a landslide, but it also lead to my information being half-truths and outright lies that I had to spend time debunking. People want convenience, but they also want to be able to trust you. The more you give out in the way of your personal life, the more you are inviting people to try and use that against you. The less you give out, the more inviting you are, but also the less people can trust you.It's a fine line to walk, but one that every politician, celebrity and person in the public eye must walk if they want to maintain their following or support.In regards to the technical side of things, open is similar to inviting in that there is a fine balance that must be achieved. If you make everything too open, you open yourself up to be hacked, because it's more likely that someone who wants to do damage will try. If you make everything too invite only, then you're effectively lying to your following and are guilty of misleading the public. The best way to deal with transparency, it seems, is with a combination of both.
+
+
+>"Um...Let's just move on to the last question: what do we do if Fairness, Accountability and Transparency are not good enough frameworks for algorithmic systems? " 
+In that case you must choose Freedom, Knowledge and Passion. 
+
+After some time, the door opens once more and you find yourself back in the room with the four chairs.

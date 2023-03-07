@@ -1,0 +1,14 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ADMIN{% endblock %}
+{% block content %}
+<div class="container admin">
+	<div class="row">
+		<div class="col-sm">
+			<ul>
+				<li><a href="{{ url_for('admin_conversions') }}">Converter Management</a></li>
+				<li><a href="{{ url_for('corpus') }}">Corpus Conversion</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}

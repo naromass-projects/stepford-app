@@ -1,0 +1,16 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ADMIN - Corpus Import{% endblock %}
+{% block content %}
+<div class="container admin">
+  <div class="row">
+    <div class="col">
+      <a href="{{ url_for('corpus') }}">Thanks - another?</a>
+      <form>
+        <input type="hidden" name="textfile" value="{{ textfile }}">
+        <input type="hidden" name="conversion_label" value="{{ conversion_label }}">
+        <input type="hidden" name="apikey" value="{{ apikey }}">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

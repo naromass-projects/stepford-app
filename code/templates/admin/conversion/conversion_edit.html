@@ -1,0 +1,230 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ADMIN - Conversions{% endblock %}
+{% block content %}
+<style>
+fieldset {
+  border:1px solid;
+  padding:0 8px;
+}
+  fieldset div.form-group {
+    margin-left:12px;
+  }
+
+textarea#prompt {
+  min-height: 20em;
+}
+  
+span.tip {
+  display: inline-block;
+  x-background-color:aqua;
+  clear:both;
+  font-size:xx-small;
+  float:left;
+}
+label {
+  x-background-color:orange;  
+  float:left;
+}
+legend {
+  width:initial !important;
+}
+form-group {}
+</style>
+<script>
+$(function() {
+  $("#locked").click(function(e){
+    var new_state = $("#locked").prop('checked');
+    $(".form-control").not("#locked").prop('disabled', function (_, val) { 
+      return new_state; 
+    });
+    $("#submit").prop('disabled', new_state);
+  }); 
+});
+</script>
+<div class="container admin">
+  <form action="{{ url_for('admin_conversion_edit') }}" method="post">
+    <div class="row">
+      <div class="col-sm">
+        <h3>Conversion configuration: {% if conversion_id != "" %}(id:{{ conversion_id  }}){% else %}New converter{% endif %}</h3>
+        {{ form.csrf_token() }}
+        {{ form.original_label() }}
+
+        {% for field, errors in form.errors.items() %}
+        <small class="form-text text-muted alert alert-error">
+          <b>{{ form[field].label }}</b>: {{', '.join(errors) }}
+        </small>
+        {% endfor %}
+
+        <div class="form-group row">
+			    <div class="col-sm">
+            {{ form.label.label }}
+	          {{ tooltipise("label")|safe }}
+		  	  </div>
+			    <div class="col-sm">
+				    {{ form.label(class="form-control",disabled=conversion_elements.locked==True) }}
+			    </div>
+        </div>
+
+        <!-- 
+             <div class="form-group">
+             {{ form.uri.label }}
+             {{ form.uri(class="form-control") }}
+             {{ tooltipise("uri")|safe }}
+             </div>
+        -->
+
+        <div class="form-group row">
+          <div class="col col-12">
+            {{ form.prompt.label }}
+            {{ tooltipise("prompt")|safe }}
+          </div>
+          <div class="col-sm">
+            {{ form.prompt(class="form-control",disabled=conversion_elements.locked==True) }}
+          </div>
+        </div>
+
+        <div class="form-group row">
+			    <div class="col-sm">
+        	  {{ form.replacement.label }}
+			      {{ tooltipise("replacement")|safe }}
+			    </div>
+			    <div class="col-sm">
+				    {{ form.replacement(class="form-control", disabled=conversion_elements.locked==True) }}
+			    </div>
+        </div>
+
+        <fieldset class="bordered">
+          <legend>GPT3 Parameters</legend>
+
+          <div class="form-group row">
+			      <div class="col-sm">
+              {{ form.best_of.label }}
+              {{ tooltipise("best_of")|safe }}
+			      </div>
+			      <div class="col-sm">
+              {{ form.best_of(class="form-control",disabled=conversion_elements.locked==True) }}
+          </div>
+
+          <fieldset>
+            <legend>Best Practice: Only one of the following two!</legend>
+
+            <div class="form-group row">
+              <div class="col-sm">
+                {{ form.temperature.label }}
+                {{ tooltipise("temperature")|safe }}
+              </div>
+              <div class="col-sm">
+                {{ form.temperature(class="form-control",disabled=conversion_elements.locked==True) }}
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm">
+                {{ form.top_p.label }}
+                {{ tooltipise("top_p")|safe }}
+              </div>
+              <div class="col-sm">
+                {{ form.top_p(class="form-control",disabled=conversion_elements.locked==True) }}
+              </div>
+            </div>
+
+          </fieldset>
+
+          <div class="form-group row">
+            <div class="col-sm">
+              {{ form.max_tokens.label }}
+              {{ tooltipise("max_tokens")|safe }}
+            </div>
+            <div class="col-sm">
+              {{ form.max_tokens(class="form-control",disabled=conversion_elements.locked==True) }}
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <div class="col-sm">
+              {{ form.n.label }}
+              {{ tooltipise("n")|safe }}
+            </div>
+            <div class="col-sm">
+              {{ form.n(class="form-control",disabled=conversion_elements.locked==True) }}
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <div class=col-sm">
+              {{ form.presence_penalty.label }}          
+              {{ tooltipise("presence_penalty")|safe }}
+            </div>
+            <div class="col-sm">
+              {{ form.presence_penalty(class="form-control",disabled=conversion_elements.locked==True) }}
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <div class=col-sm">
+              {{ form.frequency_penalty.label }}
+              {{ tooltipise("frequency_penalty")|safe }}
+            </div>
+            <div class="col-sm">
+              {{ form.frequency_penalty(class="form-control",disabled=conversion_elements.locked==True) }}
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <div class=col-sm">
+              {{ form.stop.label }}
+              {{ tooltipise("stop")|safe }}
+            </div>
+            <div class="col-sm">
+              {{ form.stop(class="form-control",disabled=conversion_elements.locked==True) }}
+            </div>
+          </div>
+  
+        </fieldset>
+
+        <fieldset>
+          <legend>Aides Memoires:</legend>
+          <div class="form-group row">
+            <div class=col-sm">
+              {{ form.notes.label }}
+              {{ tooltipise("notes")|safe }}
+            </div>
+            <div class="col-sm">
+              {{ form.notes(class="form-control",disabled=conversion_elements.locked==True) }}
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class=col-sm">
+              {{ form.rating.label }}
+              {{ tooltipise("rating")|safe }}
+            </div>
+            <div class="col-sm">            
+              {{ form.rating(class="form-control",disabled=conversion_elements.locked==True) }}
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class=col-sm">
+              {{ form.locked.label }}
+              {{ tooltipise("locked")|safe }}
+            </div>
+            <div class="col-sm">            
+              {{ form.locked(checked=conversion_elements.locked==True, class="form-control") }}
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-group row">
+          <div class=col-sm">
+            {{ form.engine() }}
+          	{{ form.submit(class="btn btn-primary",disabled=conversion_elements.locked==True) }}
+          </div>
+          <div class="col-sm">
+            {{ form.new(class="btn",
+            disabled=conversion_elements.locked==True)}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

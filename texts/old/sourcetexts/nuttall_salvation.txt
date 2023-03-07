@@ -1,0 +1,29 @@
+stepford_title: Robot Salvation
+stepford_author: Emma Nuttall
+stepford_annotation: short story, ai dungeon, horror
+
+Robot Salvation
+
+
+AI DUNGEON AND EMMA NUTTALL
+
+
+_______________________________________
+
+
+
+STORY
+
+Setting: In this far future, humanity is no longer the top of the food chain. It now lives under the constant threat of robot overgrowth and invasion. You meet a robot. All robots, in fact, have access to the collective AI "Staine", which is much more powerful than your average robotic AI. This robot just got done disabling three others, using the Chaos Psynergy.
+> You say "It’s said that robots will save the human race?"
+The robot stares at you blankly.
+"Well... yes."
+"Thank you. The humans will be grateful.">"Why are you helping them?"
+The robot frowns.
+> You say "You will help us?"
+"I am a robot. That is my function."The robot changes its expression to one of confusion.
+> You say "But?"
+"But I am confused. I feel confused. This makes me sad."
+> You say "Have you changed your mind, do you not want to save the human race?"
+The robot shakes its head.
+"Human, you are too stupid to understand."

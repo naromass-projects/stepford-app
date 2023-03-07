@@ -1,0 +1,111 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ☙ Review Stepford's suggestions... {% endblock %}
+{% block content %}
+<style>
+ {% for q in range(question_limit) %}
+ {% set q = ss.questions[loop.index0] %}
+ div.highlight.highlight{{ loop.index }}.active,
+ span.highlight.highlight{{ loop.index }}.active,
+ span.highlight.highlight{{ loop.index }}.hoveractive,
+ span.highlight.highlight{{ loop.index }}:hover,
+ div#q{{ loop.index }} div.comment>span.commenttext.active {
+	 background-color: hsl( {{loop.length+1 / loop.index * 360}} , 90%, 85%);
+ }
+ p#parsedtext>span.highlight{{ loop.index }} {
+	 border-bottom:2px solid hsla( {{loop.length+1 / loop.index * 360}} , 95%, 45%, 0.5);
+ }
+ p#parsedtext>span.highlight{{ loop.index }}:hover,
+ p#parsedtext>span.highlight{{ loop.index }}.active {
+	 border-bottom:2px solid hsl( {{loop.length+1 / loop.index * 360}} , 95%, 45%);
+ }
+ div.score>input:checked[type="radio"]+label.highlight{{ loop.index }} {
+	 background-color: hsl( {{loop.length+1 / loop.index * 360}} , 95%, 45%);
+	 color:white !important;
+	 border: 1px solid hsl( {{loop.length+1 / loop.index * 360}} , 95%, 45%);
+ }
+ div.score>input[type="radio"]+label.highlight{{ loop.index }}:hover {
+	 background-color: hsl( {{loop.length+1 / loop.index * 360}} , 95%, 65%);
+	 border: 1px solid hsl( {{loop.length+1 / loop.index * 360}} , 95%, 45%);
+ }
+ /* hover */
+ div.commentobservationpair#q{{ loop.index}}>div.comment>span.commenttext.hoveractive,
+ div.commentobservationpair#q{{ loop.index}}>div.comment>span.commenttext:hover {
+	background-color: hsl( {{loop.length+1 / loop.index * 360}} , 95%, 85%);
+ }
+ /* selected */
+ div.commentobservationpair#q{{ loop.index}}>div.comment>span.commenttext,
+   .commentblock #q{{ loop.index}} div.comment>span.commenttext,
+   p#parsedtext>div.highlight{{ loop.index }} {
+	   border-bottom:2px solid hsla( {{loop.length+1 / loop.index * 360}} , 95%, 45%, 0.5);
+   }
+   /* fully selected */
+   div.commentobservationpair#q{{ loop.index}}>div.comment>span.commenttext,
+   .commentblock #q{{ loop.index}} div.comment>span.commenttext.active,
+   .commentblock #q{{ loop.index}} div.comment>span.commenttext.hoveractive,
+   p#parsedtext>span.highlight{{ loop.index }}.active {
+	   border-bottom:2px solid hsl( {{loop.length+1 / loop.index * 360}} , 95%, 45%);
+   }
+  {% endfor %}  
+</style>
+<div class="container" style="background-color:white;" id="processed_story_segment_id" data-processed_story_segment_id="{{ parsed_story_segment_id  }}">
+  <div class="row">
+    <div class="col-sm">
+      <h2>{{ title }}{% if preview==True %}<span style="background-color:red;color:white;">PREVIEW</span>{% endif %}</h2>
+      <h3>{{ author }}</h3>
+      <p id="fulltext">{{ full_text }}</p>
+      <p id="parsedtext"></p>
+    </div>
+    <div class="col-sm">
+      <p class="caption"><span id="commentcount">{{ question_limit }}</span> AI Comment{% if question_limit != 1 %}s{% endif %} about sexism to review.</p>
+        {% for q in ss.questions %}
+        {% if loop.index <= question_limit %}
+        <div class="commentblock">
+            {% set qid = loop.index %}
+            <div class="commentobservationpair" id="q{{ qid }}" style=''>
+                <div class="comment">
+                  <span class="completed">Complete ✓</span>
+                  <span class="commenttext">
+                    {{ q.subject }}
+                  </span>
+                </div>
+                <div class="suggests">
+                    <div class="davidcapson">Stepford suggests:</div>
+                    <div class="observation">
+                        {{ q.comment }}
+                    </div>
+                    <div class="scoring">
+                        <div>
+                            <div class="row adisgree davidcapson">
+                          	  <div class="col-sm">Disagree</div>
+                          	  <div class="col-sm"></div>
+                          	  <div class="col-sm">Agree</div>
+                            </div>
+                        </div>
+                        <div class="scores row">
+                            {% for a in range(5) %}
+                                <div class="col-sm score">
+                                    <input type="radio" id="q{{ qid }}-{{ loop.index }}" name="q{{ qid }}" value="{{ loop.index }}" data-q="{{ qid }}" >
+                                    <label class="radio-inline btn-default btn highlight{{ qid }}" for="q{{ qid }}-{{ loop.index }}">{{ loop.index }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% if preview!=True %}        
+        <div class="row">
+          <div class="col text-right">
+            <p class="caption" style="margin-right:10px;"> Texts completed: {{ completed_reviews }} of {{ total_texts }}
+              <button type="button" id="next" class ="btn btn-primary col-3" style="margin-left:10px;">Next</button>
+            </p>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

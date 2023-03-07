@@ -1,0 +1,29 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ☙ Hmm... {% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-sm">
+          <h2>
+          {% if title is defined and title|length %}
+            {{ title }}
+          {% else %}
+            Oops :(
+          {% endif %}
+        </h3>
+        <h4>
+          {% if subtitle is defined and subtitle|length %}
+            {{ subtitle }}
+          {% else %}
+            An error occurred.
+          {% endif %}
+        </h4>
+        {% if error is defined and error|length %}
+          <p>(Nerd notes:{{ error | safe }}</p>
+        {% endif %}
+        <br>
+        <p>Reloading the page may let you continue reviewing; or click the <a type="button" id="Next" class="btn btn-primary col-2" href="/review">Next</a> button here.</p>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

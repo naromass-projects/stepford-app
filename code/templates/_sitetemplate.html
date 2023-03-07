@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+        <link rel="apple-touch-icon" href="/static/stepford-custom_icon.png">
+
+        <!--link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png"-->
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <link rel="manifest" href="/static/site.webmanifest">        
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/stepford.css">
+<!--         <script src="/static/popper.min.js"></script> -->
+        <script src="/static/jquery-3.6.0.min.js"></script>
+        <script src="/static/bootstrap.min.js"></script>
+        <script src="/static/stepford.js?"></script>
+        <title>{% block title %}{% endblock %} - Stepford</title>
+        {% endblock %}
+  </head>
+
+  <body class="landing">
+    <div id="content">
+      <div id="header" class="row">
+        <header id="masthead" class="site-header has-title-and-tagline has-menu">
+          <div class="site-branding col-sm" style="padding:0 1rem 0 74px; background-image: url('/static/stepford-head-logo.png'); background-repeat: no-repeat;">
+	  				<h1 class="site-title"><a href="/">Stepford</a></h1>
+	  		    <p class="site-description">Exploring bias in algorithmic writing		</p>
+	        </div><!-- .site-branding -->
+        </header>
+      </div>
+
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+
+  </body>
+</html>

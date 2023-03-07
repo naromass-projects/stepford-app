@@ -1,0 +1,51 @@
+{% extends "_sitetemplate.html" %}
+{% block title %}Stepford ADMIN - Corpus Import{% endblock %}
+{% block content %}
+<div class="container admin">
+  <form action="{{ url_for('corpus_segments_live') }}" method="post">
+    <input type="hidden" name="textfile" value="{{ textfile }}">
+    <input type="hidden" name="conversion_label" value="{{ conversion_label }}">
+    <input type="hidden" name="apikey" value="{{ apikey }}">
+    <div class="row">
+      <div class="col-sm">
+        <h3 class="processingstatus">{{ processing_status }}</h3>
+        <h4><span class="title">{{ story.title }}</span> by <span class="author"> {{ story.author }}</span> ({{ story.segments | count }} segments)</h4>
+        {% for i in story["segments"] %}
+        <div class="row conversion segment">
+          <div class="count col">
+            <input type="checkbox" name="segments" value="{{ loop.index }}" disabled>
+          </div>
+          <div class="storysegment col-11 {{ loop.index0 }}"
+            data-storysegment="{{ loop.index0 }}">
+          {{ i }}
+          </div>
+          <div class="resultgpt3 col">
+            <div class="count col"></div>
+            <div class="regenerate"></div>
+            <div class="preview"></div>            
+            <div class="processedstorysegment col-9"></div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+
+
+      </div>
+      <div class="col-sm">
+        {{ conversion_label }}
+        <select name="conversion" id="conversion">
+          {% for c in conversions %}
+          <option value="{{ c }}" {% if conversion_label == c %}selected="selected"{% endif %}>{{ c }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-sm" >
+        <input type="submit" id="saveprocessed" value="Save checked items..." disabled>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
